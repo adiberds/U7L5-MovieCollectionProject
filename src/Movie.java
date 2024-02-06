@@ -1,6 +1,8 @@
 /**
  * Class that represents a single Movie object
  */
+import java.util.Scanner;
+import java.util.ArrayList;
 public class Movie {
     private String title;
     private String cast;
@@ -36,10 +38,7 @@ return title;
     }
 
 
-    public String getCast()
-    {
-        return cast;
-    }
+    public String getCast() {return cast;}
 
     public String getDirector()
     {
@@ -53,6 +52,7 @@ return title;
 
     public String getKeywords()
     {
+
 
         return keywords;
     }
