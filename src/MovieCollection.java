@@ -162,23 +162,75 @@ public class MovieCollection
         System.out.println("Box office revenue: " + movie.getRevenue());
     }
 
-    private void searchCast()
-    {
-        System.out.print("Enter a cast member search term: ");
-        String searchterm = scanner.nextLine();
-
-        ArrayList<String> results = new ArrayList<>();
-
-        for (int i = 0; i < results.size(); i++) {
-            String[] results = movies.get(i).getCast().split("\\|");
-           results = results.toLowercase();
-
-        }
-        }
 
 
-    private void searchKeywords()
-    {
+    public void searchCast() {
+        System.out.print("Enter the name of a cast member search term: ");
+        String searchTerm = scanner.nextLine();
+        searchTerm = searchTerm.toLowerCase();
+        ArrayList<String> results = new ArrayList<String>();
+        ArrayList<Movie> results2 = new ArrayList<Movie>();
+        if (results.size() == 0) {
+            for (int i = 0; i < movies.size(); i++) {
+                String[] Cast = movies.get(i).getCast().split("\\|");
+                for (String CastActor : Cast) {
+                    if (CastActor.toLowerCase().contains(searchTerm) && results.contains(CastActor) == false) {
+                        results.add(CastActor);
+                        if (results.size() == 0) {
+                            String[] currentCast = movies.get(i).getCast().split("\\|");
+                                for (String actor : currentCast) {
+                                    if (actor.toLowerCase().contains(searchTerm) && results.contains(actor) == false) {
+                                        results.add(actor);
+                                    }
+                                }
+                            }
+                            for (int i = 0; i < results.size(); i++) {
+                                System.out.println(i++ + "." + results.get(i));
+                            }
+
+                            System.out.println("Which actor would you like to see?");
+                            int actor = scanner.nextInt();
+                            actor = actor--;
+
+                            for (Movie actorMovie : movies) {
+                                if (actorMovie.getCast().contains(results.get(actor))) {
+                                    results2.add(actorMovie);
+                                }
+                            }
+                            for (int i = 0; i < results2.size(); i++) {
+                                System.out.println(i++ + ". " + results2.get(i).getTitle());
+                            }
+
+                            System.out.println("Which movie would you like to know about?");
+                            int item = scanner.nextInt();
+                            displayMovieInfo(results2.get(item--));
+                            scanner.nextLine();
+                        } else {
+                            System.out.println("No actor found!");}}
+
+                    }
+                }
+            }
+
+
+            private void searchKeywords(){
+    System.out.print("Enter:");
+    String searchTerm = scanner.nextLine();
+    searchTerm = searchTerm.toLowerCase();
+                ArrayList<String> results = new ArrayList<String>();
+                Scanner keyword = keyword.nextLine();
+                if (results.size() == 0) {
+                    for (int i = 0; i < movies.size(); i++) {
+                        }
+
+                    }
+
+
+
+
+
+
+
 
     }
 
