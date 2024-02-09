@@ -215,24 +215,41 @@ public class MovieCollection
 
             private void searchKeywords(){
     System.out.print("Enter:");
-    String searchTerm = scanner.nextLine();
-    searchTerm = searchTerm.toLowerCase();
-                ArrayList<String> results = new ArrayList<String>();
-                Scanner keyword = keyword.nextLine();
-                if (results.size() == 0) {
-                    for (int i = 0; i < movies.size(); i++) {
+    String searchTerm = scanner.nextLine().toLowerCase();
+
+                ArrayList<Movie> results = new ArrayList<Movie>();
+
+                    for (Movie movie : movies)
+                    {
+                        String Keywords = movie.getKeywords().toLowerCase();
+                        if (Keywords.contains(searchTerm))
+                        {
+                            results.add(movie);
                         }
 
                     }
+                    if (results.isEmpty()){
+                        System.out.print("no results!");
+                    }
+                    else
+                    {
+                        System.out.println("Results;");
+                        for(int i = 0; i < results.size(); i++){
+                            System.out.print((i++) + "." + results.get(i).getTitle());
+                }
+System.out.println("Enter the number of the movie you want to view!");
+                        String Input = scanner.nextLine();
+                        try {
+                            int num = Integer.parseInt(Input);
+                            if (num > 0 && num <= results.size()) {
+                                displayMovieInfo((results.get(num--)));
+                            } else {
+                                System.out.println("No movie found!");
+
+                            }
 
 
-
-
-
-
-
-
-    }
+                            
 
     private void listGenres()
     {
