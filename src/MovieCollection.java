@@ -253,6 +253,16 @@ System.out.println("Enter the number of the movie you want to view!");
 
     private void listGenres()
     {
+int choiceNumber = 1;
+        {
+        for(String genre : genres)
+    System.out.println(choiceNumber + ". " + genre);
+    choiceNumber++;
+        }
+        System.out.print("Which Genre would you like to see? ")
+    System.out.println("Genre: ");
+        int ChoiceGenre = scanner.nextLine();
+        String genre = genres.get(choice -1);
 
     }
 
