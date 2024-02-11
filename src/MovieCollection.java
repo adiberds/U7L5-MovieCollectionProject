@@ -253,17 +253,21 @@ System.out.println("Enter the number of the movie you want to view!");
 
     private void listGenres()
     {
-int choiceNumber = 1;
-        {
-        for(String genre : genres)
-    System.out.println(choiceNumber + ". " + genre);
-    choiceNumber++;
-        }
-        System.out.print("Which Genre would you like to see? ")
-    System.out.println("Genre: ");
-        int ChoiceGenre = scanner.nextLine();
-        String genre = genres.get(choice -1);
+ArrayList<String> genres = new ArrayList<String>();
+for (int i = 0; i < movies.size(); i++){
+    String[] MoviesGenres = movies.get(i).getGenres().split("\\|");
+    for (int gen = 0; gen < MoviesGenres.length; gen++ )
+    {
 
+if (genres.get(gen).equals(MoviesGenres[gen]));
+{
+            boolean inList = true;
+        }
+        for(int gen2 = 0; gen2 < MoviesGenres.length; gen2++){
+            boolean inList = false;
+        }
+    }
+}
     }
 
     private void listHighestRated()
