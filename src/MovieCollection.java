@@ -272,6 +272,28 @@ if (genres.get(gen).equals(MoviesGenres[gen]));
 
     private void listHighestRated()
     {
+        ArrayList<Movie> topMovies = new ArrayList<>(movies);
+        for (int i = 0; i < topMovies.size(); i++){
+            for (int nextIndex = i + 1; nextIndex < topMovies.size(); nextIndex++){
+                Movie movie1 = topMovies.get(i);
+                Movie movie2 = topMovies.get(nextIndex);
+                if(movie1.getUserRating() < movie2.getUserRating()){
+                    topMovies.set(i, movie2);
+                    topMovies.set(nextIndex, movie1);
+                }
+
+            }
+
+        }
+        System.out.println("Top 50 of the highest rated Movies:");
+        for (int i = 0; i < 50 && i < topMovies.size(); i++){
+        Movie movie = topMovies.get(i);
+            double rating = movie.getUserRating();
+            String title = movie.getTitle();
+            System.out.println((i+1) + ". " + title + " (" + rating + ")");
+        }
+
+
 
     }
 
