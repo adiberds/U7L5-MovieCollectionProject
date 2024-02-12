@@ -299,8 +299,28 @@ if (genres.get(gen).equals(MoviesGenres[gen]));
 
     private void listHighestRevenue()
     {
+ArrayList<Movie> top50revenue = new ArrayList<>(movies) {
+    for(int i = 0; i < top50revenue.size(); i++){
+for (int nextIndex = i +1; nextIndex < top50revenue.size(); nextIndex++)
+{
+    Movie movie1 = top50revenue.get(i);
+    Movie movie2 = top50revenue.get(nextIndex);
+    if(movie1.getRevenue() < movie2.getRevenue()){
+        top50revenue.set(i, movie2);
+        top50revenue.set(nextIndex, movie1);
 
+    System.out.println("The top 50 of the highest revenue movies are:");
+    for (int i = 0; i < 50 && i < top50revenue.size(); i++) {
+        String title = movie1.getTitle();
+        double revenue = movie1.getRevenue();
+        Movie movie = top50revenue.get(i);
+        System.out.println((i)+1) + ". " + title + " ($" + revenue + ")"))
     }
+    }
+
+
+
+}
 
     private void importMovieList(String fileName)
     {
